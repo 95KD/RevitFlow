@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>RevitFlow</Name>
+	<Assembly>RevitFlow\Revit2023Addin.dll</Assembly>
+    <AddInId>d3a1f624-8cf2-4c7f-9b61-0f9f1b2a5e6c</AddInId>
+    <FullClassName>Revit2023Addin.App</FullClassName>
+    <VendorId>95KD</VendorId>
+    <VendorDescription>RevitFlow add-in</VendorDescription>
+  </AddIn>
+</RevitAddIns>
