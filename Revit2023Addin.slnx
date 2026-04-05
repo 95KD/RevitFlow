@@ -1,3 +1,7 @@
 <Solution>
-  <Project Path="Revit2023Addin/Revit2023Addin.csproj" Id="80ca7ece-e964-4739-aa26-86cd3ab98763" />
+  <Project Path="Common/Common.csproj" Id="06bd89c2-7501-4603-a110-6c6ad9b97d0c" />
+  <Project Path="RevitDraw/RevitDraw.csproj" Id="2e25b856-64b9-41bf-9d3c-53e8265a3789" />
+  <Project Path="RevitModeling/RevitModeling.csproj" Id="fb2e4abd-388b-4af9-8349-107e24a741b4" />
+  <Project Path="RevitUI/RevitUI.csproj" Id="91dd3c69-5d07-424f-b5cc-b4914f93e79b" />
+  <Project Path="Service/Service.csproj" Id="0088166f-cc29-4db6-b034-d7a35f7fb59c" />
 </Solution>
