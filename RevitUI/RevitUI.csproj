@@ -53,9 +53,6 @@
     <Compile Include="IRevitCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="RevitUI.addin" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(TargetPath)" "%25AppData%25\Autodesk\Revit\Addins\2023\RevitFlow"

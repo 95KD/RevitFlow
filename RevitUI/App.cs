@@ -1,24 +1,46 @@
 using Autodesk.Revit.UI;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace RevitUI
 {
-    /// <summary>
-    /// Minimal Revit application entry point. The class registered in the .addin file
-    /// should point to this type (FullClassName = "RevitUI.App").
-    /// Keep startup logic small; ribbon and command proxies can be added here.
-    /// </summary>
     public class App : IExternalApplication
     {
         public Result OnShutdown(UIControlledApplication application)
-        {
-            // TODO: cleanup if needed
-            return Result.Succeeded;
-        }
+            => Result.Succeeded;
 
         public Result OnStartup(UIControlledApplication application)
         {
-            // TODO: create ribbons / buttons or initialize the proxy command loader
+            var dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+            CreateTab(application, "RevitDraw", "도구",
+                dir, "RevitDraw.dll",
+                ("DrawTool", "Draw", "RevitDraw.Commands.DrawCommand"));
+
+            CreateTab(application, "RevitModeling", "도구",
+                dir, "RevitModeling.dll",
+                ("ModelTool", "Model", "RevitModeling.Commands.ModelCommand"));
+
             return Result.Succeeded;
+        }
+
+        private void CreateTab(
+            UIControlledApplication app,
+            string tabName,
+            string panelName,
+            string dllDir,
+            string dllName,
+            params (string name, string text, string className)[] buttons)
+        {
+            app.CreateRibbonTab(tabName);
+            var panel = app.CreateRibbonPanel(tabName, panelName);
+            var dllPath = Path.Combine(dllDir, dllName);
+
+            foreach (var (name, text, className) in buttons)
+            {
+                panel.AddItem(new PushButtonData(name, text, dllPath, className));
+            }
         }
     }
 }
