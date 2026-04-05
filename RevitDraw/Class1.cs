@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using RevitUI;
+using Autodesk.Revit.UI;
 
 namespace RevitDraw
 {
@@ -11,17 +8,17 @@ namespace RevitDraw
     // The project must reference RevitUI to compile this.
     public class Class1 : IRevitCommand
     {
-        public RevitCommandResult Execute(ExternalCommandDataWrapper commandData)
+        public Result Execute(ExternalCommandData commandData)
         {
-            // TODO: adapt to real ExternalCommandData wrapped in commandData.CommandData
+            // TODO: adapt to real ExternalCommandData
             try
             {
                 // perform operations
-                return RevitCommandResult.Succeeded;
+                return Result.Succeeded;
             }
             catch
             {
-                return RevitCommandResult.Failed;
+                return Result.Failed;
             }
         }
     }
